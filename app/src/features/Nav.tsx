@@ -6,6 +6,9 @@ const MenuLink = styled.ul<{}>`
   gap: calc(var(--global-scale) * 34px);
   list-style: none;
   align-items: center;
+  @media (max-width: 1060px) {
+    display: none;
+  }
 `;
 
 const Link = styled.a<{}>`
@@ -21,6 +24,7 @@ const Link = styled.a<{}>`
   &:hover {
     color: #0b5ed7;
   }
+  
 `;
 const LINKS = [
   {

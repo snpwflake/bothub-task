@@ -5,15 +5,15 @@ const Button = styled.button<{ size: "sm" | "md" }>`
     if (props.size === "sm") {
       return css`
         font-size: max(calc(var(--global-scale, 1) * 15px), 12px);
-        line-height: 20px;
+        line-height: max(calc(var(--global-scale, 1) * 20px), 16px);
         padding: max(calc(var(--global-scale, 1) * 10px), 8px)
           max(calc(var(--global-scale, 1) * 18px), 14px);
       `;
     } else if (props.size === "md") {
       return css`
-        font-size: 18px;
-        line-height: 24px;
-        padding: 14px 24px;
+        font-size: calc(var(--global-scale, 1) * 18px);
+        line-height: calc(var(--global-scale, 1) * 24px);
+        padding: calc(var(--global-scale, 1) * 14px) calc(var(--global-scale, 1) * 24px);
       `;
     }
   }}

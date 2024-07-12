@@ -7,10 +7,18 @@ const Grid = styled.div<{}>`
   max-width: calc(var(--global-scale) * 1290px);
   margin: 0 auto;
   display: grid;
+  grid-gap: calc(var(--global-scale) * 30px);
   grid-template-columns: repeat(2, 1fr);
   & > img {
     width: 100%;
     object-fit: contain;
+    @media (max-width: 1060px) {
+      max-width: calc(var(--global-scale) * 350px);
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 1060px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -19,6 +27,10 @@ const Container = styled.div<{}>`
   width: 100%;
   justify-content: right;
   align-items: center;
+  @media (max-width: 1060px) {
+    text-align: center;
+    justify-content: center;
+  }
 `;
 const MidJorneyBlock = styled.div<{}>`
   max-width: calc(var(--global-scale) * 540px);
@@ -29,7 +41,6 @@ const MidJorneyBlock = styled.div<{}>`
     font-size: calc(var(--global-scale) * 34px);
     font-weight: 600;
     line-height: calc(var(--global-scale) * 44px);
-    text-align: left;
   }
   & > p {
     margin: calc(var(--global-scale) * 20px) 0;
@@ -37,7 +48,10 @@ const MidJorneyBlock = styled.div<{}>`
     font-size: calc(var(--global-scale) * 16px);
     font-weight: 400;
     line-height: calc(var(--global-scale) * 22px);
-    text-align: left;
+  }
+
+  @media (max-width: 1060px) {
+    max-width: 100%;
   }
 `;
 const GenImages = () => {

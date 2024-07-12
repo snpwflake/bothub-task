@@ -10,6 +10,14 @@ const GridContainer = styled.div<{}>`
   grid-template-columns: repeat(3, 1fr);
   gap: calc(var(--global-scale) * 30px);
   margin: 0 auto;
+  @media (max-width: 1060px) {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const CardItem = styled.div<{}>`
   background: radial-gradient(
@@ -25,6 +33,9 @@ const CardItem = styled.div<{}>`
   );
   padding: calc(var(--global-scale) * 28px) calc(var(--global-scale) * 24px);
   border-radius: 12px;
+  @media (max-width: 1060px) {
+    padding: calc(var(--global-scale, 1) * 24px) calc(var(--global-scale, 1) * 18px);
+  }
 `;
 
 const Title = styled.h2<{}>`
@@ -36,12 +47,12 @@ const Title = styled.h2<{}>`
 `;
 const Label = styled.h3<{}>`
   font-family: IBM Plex Sans;
-  font-size: calc(var(--global-scale) * 22px);
+  font-size: calc(var(--global-scale) * 20px);
   font-weight: 600;
-  line-height: calc(var(--global-scale) * 29px);
+  line-height: calc(var(--global-scale) * 26px);
   margin: 0;
-  text-align: left;
   color: white;
+
 `;
 const Typography = styled.p<{}>`
   font-family: IBM Plex Sans;
@@ -50,7 +61,6 @@ const Typography = styled.p<{}>`
   line-height: calc(var(--global-scale) * 22px);
   margin: 0;
   margin-top: calc(var(--global-scale) * 16px);
-  text-align: left;
   color: white;
 `;
 

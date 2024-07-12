@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BgIcon from "../icons/Grid.svg";
+import Chat from "../entities/chat/Chat";
 const PreviewStyle = styled.div<{}>`
   width: 100%;
   height: 592px;
@@ -27,6 +28,7 @@ const Preview = () => {
     <PreviewStyle>
       <Container>1</Container>
       {/* <Background src={BgIcon} /> */}
+      <Chat />
     </PreviewStyle>
   );
 };
