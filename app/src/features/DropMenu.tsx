@@ -2,18 +2,20 @@ import IconButton from "./IconButton";
 import MenuIcon from "../icons/MenuIcon";
 import { useState } from "react";
 import styled from "styled-components";
+import LinkProductMobile from "./LinkProductMobile";
+import Button from "./Button";
 
 const Menu = styled.div<{ open: boolean }>`
   display: ${(props) => (props.open ? "block" : "none")};
   position: fixed;
   top: calc(var(--global-scale) * 85px);
   z-index: 998;
-  background-color: #0E0C15;
+  background-color: #0e0c15;
   left: 0;
   width: 100%;
   height: calc(100vh - calc(var(--global-scale) * 85px));
-  animation: fadeIn 0.2s ease-in-out;
-  @keyframes fadeIn {
+  animation: fadeInDown 0.2s ease-in-out;
+  @keyframes fadeInDown {
     from {
       transform: translateY(-84px);
       opacity: 0;
@@ -37,7 +39,6 @@ const MenuLink = styled.ul<{}>`
   gap: calc(var(--global-scale) * 34px);
   list-style: none;
   align-items: left;
-
 `;
 
 const Link = styled.a<{}>`
@@ -53,13 +54,15 @@ const Link = styled.a<{}>`
   &:hover {
     color: #0b5ed7;
   }
-  
+`;
+
+const BtnAuth = styled.div<{}>`
+  display: none;
+  @media (max-width: 540px) {
+    display: block;
+  }
 `;
 const LINKS = [
-  {
-    label: "Продукты",
-    href: "/products",
-  },
   {
     label: "Пакеты",
     href: "/packages",
@@ -80,7 +83,7 @@ const DropMenu = () => {
   const handleClick = () => {
     document.body.style.overflow = open ? "auto" : "hidden";
     setOpen((prev) => !prev);
-  }
+  };
 
   return (
     <Container>
@@ -89,13 +92,19 @@ const DropMenu = () => {
       </IconButton>
       <Menu open={open}>
         <MenuLink>
+          <LinkProductMobile />
           {LINKS.map((link) => (
             <Link href={link.href}>{link.label}</Link>
           ))}
+          <BtnAuth>
+            <Button size="sm" fullWidth>
+              Авторизация
+            </Button>
+          </BtnAuth>
         </MenuLink>
       </Menu>
     </Container>
-  )
+  );
 };
 
 export default DropMenu;

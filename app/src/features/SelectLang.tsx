@@ -13,9 +13,9 @@ const SelectContainer = styled.div<{ open: boolean }>`
     align-items: center;
     gap: 6px;
     font-family: IBM Plex Sans;
-    font-size: 16px;
+    font-size: calc(var(--global-scale) * 16px);
     font-weight: 600;
-    line-height: 22px;
+    line-height: calc(var(--global-scale) * 22px);
     text-align: left;
     border: none;
     outline: none;
@@ -46,19 +46,19 @@ const SelectContainer = styled.div<{ open: boolean }>`
 `;
 const Select = styled.ul<{ open: boolean }>`
   position: absolute;
-  z-index: 1;
+  z-index: 999;
   top: 100%;
   left: 0;
   width: 100%;
   background-color: #222b44;
-  border-radius: 8px;
+  border-radius: calc(var(--global-scale) * 8px);
   list-style: none;
-  padding: 8px 0;
+  padding: calc(var(--global-scale) * 8px) 0;
   text-align: center;
   display: ${({ open }) => (open ? "block" : "none")};
-  animation: ${({ open }) => open && "open 0.15s ease-in-out"};
+  animation: ${({ open }) => open && "openLang 0.15s ease-in-out"};
 
-  @keyframes open {
+  @keyframes openLang {
     0% {
       overflow: hidden;
       height: 0;
@@ -67,15 +67,15 @@ const Select = styled.ul<{ open: boolean }>`
     }
     100% {
       overflow: visible;
-      height: 100px;
+      height: auto;
       scale: 1;
     }
   }
   & > li {
-    padding: 10px;
+    padding: calc(var(--global-scale) * 8px) calc(var(--global-scale) * 16px);
     border-radius: 8px;
     font-family: IBM Plex Sans;
-    font-size: 16px;
+    font-size: calc(var(--global-scale) * 16px);
     font-weight: 600;
     background-color: inherit;
     color: white;

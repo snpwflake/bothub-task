@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const Button = styled.button<{ size: "sm" | "md" }>`
+const Button = styled.button<{ size: "sm" | "md"; fullWidth?: boolean }>`
   ${(props) => {
     if (props.size === "sm") {
       return css`
@@ -13,10 +13,12 @@ const Button = styled.button<{ size: "sm" | "md" }>`
       return css`
         font-size: calc(var(--global-scale, 1) * 18px);
         line-height: calc(var(--global-scale, 1) * 24px);
-        padding: calc(var(--global-scale, 1) * 14px) calc(var(--global-scale, 1) * 24px);
+        padding: calc(var(--global-scale, 1) * 14px)
+          calc(var(--global-scale, 1) * 24px);
       `;
     }
   }}
+  width: ${(props) => (props.fullWidth ? "100%" : "auto")};
   font-family: IBM Plex Sans;
   box-shadow: 0px 1px 1px 0px #ffffff66 inset;
   background-color: #1c64f2;

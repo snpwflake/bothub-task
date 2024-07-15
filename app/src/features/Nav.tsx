@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import LinkProduct from "./LinkProduct";
 const MenuLink = styled.ul<{}>`
   display: flex;
   padding: 0;
@@ -24,13 +24,8 @@ const Link = styled.a<{}>`
   &:hover {
     color: #0b5ed7;
   }
-  
 `;
 const LINKS = [
-  {
-    label: "Продукты",
-    href: "/products",
-  },
   {
     label: "Пакеты",
     href: "/packages",
@@ -47,6 +42,7 @@ const LINKS = [
 const Nav = () => {
   return (
     <MenuLink>
+      <LinkProduct />
       {LINKS.map((link) => (
         <Link href={link.href}>{link.label}</Link>
       ))}
